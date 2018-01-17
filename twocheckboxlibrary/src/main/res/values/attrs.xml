@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextTwoCheckBox">
+        <attr name="textview_text_color" format="color"/>
+        <attr name="textview_text_size" format="dimension"/>
+        <attr name="textview_text" format="string"/>
+
+        <attr name="checkbox1_text" format="string"/>
+        <attr name="checkbox1_text_color" format="color"/>
+        <attr name="checkbox1_text_size" format="dimension"/>
+
+        <attr name="checkbox2_text" format="string"/>
+        <attr name="checkbox2_text_color" format="color"/>
+        <attr name="checkbox2_text_size" format="dimension"/>
+
+    </declare-styleable>
+</resources>

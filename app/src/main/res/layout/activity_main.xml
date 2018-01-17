@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pineteree.twocheckboxdemo.MainActivity">
+
+    <com.pineteree.twocheckboxlibrary.TwoCheckbox
+        android:id="@+id/main_two_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:checkbox1_text="是"
+        app:checkbox1_text_color="#ed1010"
+        app:checkbox2_text="否"
+        app:checkbox2_text_color="#2edc17"
+        app:textview_text="是否完成："/>
+
+</android.support.constraint.ConstraintLayout>
