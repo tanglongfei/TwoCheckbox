@@ -26,4 +26,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':twocheckboxlibrary')
+    implementation ( 'com.github.the-pig-of-jungle:SmartShow:v1.0.2' ){
+        //去除support包的依赖，其一，你不一定用到SmartSnackbar；其二，你项目使用的版本不一定和库中所用相同
+        exclude group: 'com.android.support'
+
+    }
 }

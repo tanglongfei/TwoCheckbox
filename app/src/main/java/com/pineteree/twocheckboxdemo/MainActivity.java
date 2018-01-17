@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.coder.zzq.smartshow.toast.SmartToast;
 import com.pineteree.twocheckboxlibrary.TwoCheckbox;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void getCheckInt(int checkInt) {
                 // checkInt：0  左边CheckBox
                 // checkInt：1  右边CheckBox
-                Log.d(TAG, checkInt + "");
+                SmartToast.show(checkInt + "");
             }
         });
     }
