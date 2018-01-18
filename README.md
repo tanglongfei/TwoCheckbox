@@ -1,7 +1,8 @@
 # TwoCheckbox    
 很常用的双选一单选框，使用TextView+CheckBox   
-很简单的一个自定义组合控件，很多属性不是很全，可参考进行拓展  
+很简单的一个自定义组合控件，很多属性不是很全，可参考进行拓展    
 
+![image](https://github.com/tanglongfei/TwoCheckbox/blob/master/image/2018-01-18_09-13-02.gif)  
 ## 布局中使用  
 ```
 <com.pineteree.twocheckboxlibrary.TwoCheckbox
