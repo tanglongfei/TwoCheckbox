@@ -25,10 +25,10 @@ allprojects {
 	             }
         }
 ```
-Step 2. Add the dependency  
+Step 2. Add the dependency (Android studio3.0以下使用compile添加依赖)  
 ```
 dependencies {
-	  compile 'com.github.tanglongfei:TwoCheckbox:V1.0'
+	  implementation 'com.github.tanglongfei:TwoCheckbox:V1.0'
 	}
 ```
 
