@@ -1,8 +1,13 @@
 # TwoCheckbox    
 很常用的双选一单选框，使用TextView+CheckBox   
-很简单的一个自定义组合控件，很多属性不是很全，可参考进行拓展    
+很简单的一个自定义组合控件，两种模式的设置，属性不是很全，可参考进行拓展   
 
-![image](https://github.com/tanglongfei/TwoCheckbox/blob/master/image/2018-01-18_09-49-36.gif)  
+可选模式```mTwoCheckbox.setMode(TwoCheckbox.MODE_OPTIONAL);```  
+![image](https://github.com/tanglongfei/TwoCheckbox/blob/master/image/2018-01-19_16-34-16.gif) 
+
+必选模式```mTwoCheckbox.setMode(TwoCheckbox.MODE_MANDATORY);```  
+![image](https://github.com/tanglongfei/TwoCheckbox/blob/master/image/2018-01-19_16-36-06.gif)  
+
 ## 布局中使用  
 ```
 <com.pineteree.twocheckboxlibrary.TwoCheckbox
@@ -14,6 +19,48 @@
         app:checkbox2_text="否"
         app:checkbox2_text_color="#2edc17"
         app:textview_text="是否完成："/>
+```
+## 代码中  
+```
+     mTwoCheckbox = findViewById(R.id.main_two_checkbox);
+        /**
+         * 设置选中哪一个
+         * 必选模式
+         * 0：左边CheckBox
+         * 1：右边CheckBox
+         */
+        mTwoCheckbox.setMode(TwoCheckbox.MODE_MANDATORY);
+        mTwoCheckbox.setCheckInt(1);
+
+        /**
+         * 设置选中哪一个
+         * 可选模式
+         * 0：左边CheckBox
+         * 1：右边CheckBox
+         * 2：都不选中
+         */
+//        mTwoCheckbox.setMode(TwoCheckbox.MODE_OPTIONAL);
+//        mTwoCheckbox.setCheckInt(2);
+
+
+        /**
+         *获取选中哪一个
+         * 0：左边CheckBox
+         * 1：右边CheckBox
+         */
+        int checkInt = mTwoCheckbox.getCheckInt();
+        Log.d("checkInt", checkInt + "");
+        /**
+         *点击事件
+         */
+        mTwoCheckbox.setCheckBoxOnCheckListener(new TwoCheckbox.OnCheckListener() {
+            @Override
+            public void getCheckInt(int checkInt) {
+                // checkInt：0  左边CheckBox
+                // checkInt：1  右边CheckBox
+                SmartToast.show(checkInt + "");
+            }
+        });
 ```
 ## How to include    
 Step 1. Add it in your root build.gradle at the end of repositories: 
