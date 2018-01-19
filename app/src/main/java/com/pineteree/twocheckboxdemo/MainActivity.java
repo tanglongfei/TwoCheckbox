@@ -21,8 +21,11 @@ public class MainActivity extends AppCompatActivity {
          * 0：左边CheckBox
          * 1：右边CheckBox
          */
-        mTwoCheckbox.setCheckInt(1);
+        mTwoCheckbox.setMode(TwoCheckbox.MODE_MANDATORY);
+        mTwoCheckbox.setCheckInt(2);
 
+        int checkInt = mTwoCheckbox.getCheckInt();
+        Log.d("checkInt", checkInt + "");
         /**
          *点击事件
          */

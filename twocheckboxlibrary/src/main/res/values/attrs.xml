@@ -13,5 +13,6 @@
         <attr name="checkbox2_text_color" format="color"/>
         <attr name="checkbox2_text_size" format="dimension"/>
 
+
     </declare-styleable>
 </resources>

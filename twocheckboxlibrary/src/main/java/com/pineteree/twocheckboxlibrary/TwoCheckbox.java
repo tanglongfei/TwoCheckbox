@@ -19,6 +19,12 @@ public class TwoCheckbox extends LinearLayout {
     private CheckBox mCheckBox1;
     private CheckBox mCheckBox2;
     private TextView mTextView;
+    //必选模式
+    public static final int MODE_MANDATORY = 0;
+    //可选模式
+    public static final int MODE_OPTIONAL = 1;
+    //模式
+    private int mode = 0;
     private int checkInt = 0;
 
 
@@ -32,21 +38,32 @@ public class TwoCheckbox extends LinearLayout {
         if (checkInt == 0) {
             mCheckBox1.setChecked(true);
             mCheckBox2.setChecked(false);
-        } else {
+        } else if (checkInt == 1) {
             mCheckBox1.setChecked(false);
             mCheckBox2.setChecked(true);
         }
+
         mCheckBox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    mCheckBox2.setChecked(false);
-                    checkInt = 0;
+                if (mode == MODE_MANDATORY) {
+                    if (isChecked) {
+                        mCheckBox2.setChecked(false);
+                        checkInt = 0;
 
-                } else {
-                    mCheckBox2.setChecked(true);
-                    checkInt = 1;
+                    } else {
+                        mCheckBox2.setChecked(true);
+                        checkInt = 1;
+                    }
+
+                } else if (mode == MODE_OPTIONAL) {
+                    if (isChecked) {
+                        mCheckBox2.setChecked(false);
+                        checkInt = 0;
+                    }
+
                 }
+
                 if (mOnCheckListener != null) {
                     mOnCheckListener.getCheckInt(checkInt);
                 }
@@ -56,13 +73,23 @@ public class TwoCheckbox extends LinearLayout {
         mCheckBox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    mCheckBox1.setChecked(false);
-                    checkInt = 1;
-                } else {
-                    mCheckBox1.setChecked(true);
-                    checkInt = 0;
+                if (mode == MODE_MANDATORY) {
+                    if (isChecked) {
+                        mCheckBox1.setChecked(false);
+                        checkInt = 1;
+                    } else {
+                        mCheckBox1.setChecked(true);
+                        checkInt = 0;
+                    }
+
+                } else if (mode == MODE_OPTIONAL) {
+                    if (isChecked) {
+                        mCheckBox1.setChecked(false);
+                        checkInt = 1;
+                    }
+
                 }
+
                 if (mOnCheckListener != null) {
                     mOnCheckListener.getCheckInt(checkInt);
                 }
@@ -130,8 +157,10 @@ public class TwoCheckbox extends LinearLayout {
                     .TextTwoCheckBox_checkbox2_text_size, LinearLayout.LayoutParams
                     .WRAP_CONTENT);
             mCheckBox2.setTextSize(chechbox2_textsize);
+
             attributes.recycle();
         }
+
 
     }
 
@@ -161,8 +190,22 @@ public class TwoCheckbox extends LinearLayout {
         } else if (checkInt == 1) {
             mCheckBox1.setChecked(false);
             mCheckBox2.setChecked(true);
+        } else if (checkInt == 2) {
+            mCheckBox1.setChecked(false);
+            mCheckBox2.setChecked(false);
         }
         this.checkInt = checkInt;
+    }
+
+    /**
+     * 设置模式
+     * 必选模式 MODE_MANDATORY = 0;
+     //可选模式
+     public static final int MODE_OPTIONAL = 1;
+     * @param mode
+     */
+    public void setMode(int mode) {
+        this.mode = mode;
     }
 
     /**
