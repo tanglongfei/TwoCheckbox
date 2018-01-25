@@ -3,8 +3,8 @@ package com.pineteree.twocheckboxdemo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
-import com.coder.zzq.smartshow.toast.SmartToast;
 import com.pineteree.twocheckboxlibrary.TwoCheckbox;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,12 +18,29 @@ public class MainActivity extends AppCompatActivity {
         mTwoCheckbox = findViewById(R.id.main_two_checkbox);
         /**
          * 设置选中哪一个
+         * 必选模式
          * 0：左边CheckBox
          * 1：右边CheckBox
          */
         mTwoCheckbox.setMode(TwoCheckbox.MODE_MANDATORY);
-        mTwoCheckbox.setCheckInt(2);
+        mTwoCheckbox.setCheckInt(1);
 
+        /**
+         * 设置选中哪一个
+         * 可选模式
+         * 0：左边CheckBox
+         * 1：右边CheckBox
+         * 2：都不选中
+         */
+        //        mTwoCheckbox.setMode(TwoCheckbox.MODE_OPTIONAL);
+        //        mTwoCheckbox.setCheckInt(2);
+
+
+        /**
+         *获取选中哪一个
+         * 0：左边CheckBox
+         * 1：右边CheckBox
+         */
         int checkInt = mTwoCheckbox.getCheckInt();
         Log.d("checkInt", checkInt + "");
         /**
@@ -34,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             public void getCheckInt(int checkInt) {
                 // checkInt：0  左边CheckBox
                 // checkInt：1  右边CheckBox
-                SmartToast.show(checkInt + "");
+                Toast.makeText(getApplicationContext(), checkInt + "", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
