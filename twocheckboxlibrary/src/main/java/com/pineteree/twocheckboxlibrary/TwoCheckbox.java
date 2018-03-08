@@ -60,6 +60,10 @@ public class TwoCheckbox extends LinearLayout {
                     if (isChecked) {
                         mCheckBox2.setChecked(false);
                         checkInt = 0;
+                    } else if (mCheckBox2.isChecked()) {
+                        checkInt = 1;
+                    } else if (!mCheckBox1.isChecked() && !mCheckBox2.isChecked()) {
+                        checkInt = 2;
                     }
 
                 }
@@ -86,6 +90,10 @@ public class TwoCheckbox extends LinearLayout {
                     if (isChecked) {
                         mCheckBox1.setChecked(false);
                         checkInt = 1;
+                    } else if (mCheckBox1.isChecked()) {
+                        checkInt = 1;
+                    } else if (!mCheckBox1.isChecked() && !mCheckBox2.isChecked()) {
+                        checkInt = 2;
                     }
 
                 }
@@ -200,8 +208,9 @@ public class TwoCheckbox extends LinearLayout {
     /**
      * 设置模式
      * 必选模式 MODE_MANDATORY = 0;
-     //可选模式
-     public static final int MODE_OPTIONAL = 1;
+     * //可选模式
+     * public static final int MODE_OPTIONAL = 1;
+     *
      * @param mode
      */
     public void setMode(int mode) {
