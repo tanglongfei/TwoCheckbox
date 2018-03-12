@@ -91,7 +91,7 @@ public class TwoCheckbox extends LinearLayout {
                         mCheckBox1.setChecked(false);
                         checkInt = 1;
                     } else if (mCheckBox1.isChecked()) {
-                        checkInt = 1;
+                        checkInt = 0;
                     } else if (!mCheckBox1.isChecked() && !mCheckBox2.isChecked()) {
                         checkInt = 2;
                     }
